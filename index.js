@@ -79,7 +79,7 @@ client.connect(err => {
         regUserCollection.deleteOne({_id: mongodb.ObjectId(req.params.id)})
         
         .then((result) => {
-            console.log(result);
+            res.send(result);
         })
     })
     
