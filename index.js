@@ -68,7 +68,8 @@ client.connect(err => {
     })
 
     app.get('/allRegUser', (req, res) => {
-        regUserCollection.find({})
+        // console.log(req.query.email);
+        regUserCollection.find({email: req.query.email})
         .toArray((err, documents) => {
             res.send(documents);
         })
@@ -80,6 +81,13 @@ client.connect(err => {
         
         .then((result) => {
             console.log(result);
+        })
+    })
+
+    app.get('/registerListTable', (req, res) => {
+        regUserCollection.find({})
+        .toArray((err, documents) => {
+            res.send(documents)
         })
     })
     
